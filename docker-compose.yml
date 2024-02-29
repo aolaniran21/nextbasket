@@ -14,7 +14,7 @@ services:
         timeout: 15s
         retries: 1
   user:
-    build: .
+    build: ./user
     container_name: user
     ports:
         - "9000:80"
@@ -27,7 +27,7 @@ services:
         - default
     working_dir: /var/www/html/nextbasket-test       
   notification:
-      build: .
+      build: ./notification
       container_name: notification
       ports:
           - "9001:80"
