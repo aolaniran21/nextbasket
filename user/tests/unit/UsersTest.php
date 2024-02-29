@@ -6,11 +6,12 @@ use App\Controllers\Users;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\ControllerTester;
 use CodeIgniter\HTTP\IncomingRequest;
-
+use CodeIgniter\Test\ControllerTestTrait;
 
 class UsersTest extends CIUnitTestCase
 {
-    use ControllerTester;
+    // use ControllerTester;
+    use ControllerTestTrait;
 
     public function setUp(): void
     {
@@ -38,6 +39,12 @@ class UsersTest extends CIUnitTestCase
             ->execute('index')
             ->assertJSONExact(['message' => 'User created successfully'])
             ->assertResponseStatus(201);
+
+        // $this->withRequest($request)
+        //     ->controller(\App\Controllers\Users::class)
+        //     ->execute('index')
+        //     ->assertJSONExact(['message' => 'User created successfully'])
+        //     ->assertResponseStatus(201);
 
         // Assert that the data submission is handled
         $this->assertFileExists(WRITEPATH . 'logs/data_submission.log');

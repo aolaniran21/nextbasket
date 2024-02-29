@@ -10,7 +10,7 @@ use App\Libraries\RabbitMQ\RabbitMQ;
 
 class RabbitMQService
 {
-    private $channel;
+    public $channel;
 
     public function __construct()
     {
